@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VideoJS 7 Preview Thumbnails Example</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="//vjs.zencdn.net/7.3.0/video.min.js"></script>
+    <script src="../dist/videojs-preview-thumbnails.js"></script>
+    <link href="//vjs.zencdn.net/7.3.0/video-js.min.css" rel="stylesheet">
+
+    <script>
+
+        window.onload = function () {
+
+            var player = videojs( 'my-player',{
+                poster : 'https://d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png',
+                controls : true,
+                techOrder : [ 'html5' ],
+                controlslist : 'nodownload',
+                language : "zh-Hant",
+                preload : 'auto',
+                sources : 'https://d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8',
+                children : ["mediaLoader","posterImage","textTrackDisplay","loadingSpinner","bigPlayButton","controlBar","errorDisplay","textTrackSettings"],
+                controlBar : {
+                    name : 'ControlBar',
+                    children : [
+                        {name: "PlayToggle"},
+                        {name: "ProgressControl"},
+                        {name: "DurationDisplay"},
+                        {name: "MuteToggle"},
+                        {name: "VolumeControl"},
+                        {name: "FullscreenToggle"}
+                    ]
+                }
+            },function () {
+                this.initialPreviewThumbnail({
+                    sprite_url:'./output-180x120-thumb.jpg',
+                    second:6,
+                    sprite_x_count:15,
+                    thumbnail_width:180,
+                    thumbnail_height:120,
+                    preview_window_border_size:2,
+                    preview_window_border_color:'green'
+                });
+                console.log( 'ready to play' );
+            });
+
+        }
+
+    </script>
+
+
+</head>
+<body>
+
+    <video id="my-player" class="video-js vjs-big-play-centered vjs-show-big-play-button-on-pause vjs-fill"></video>
+
+</body>
+</html>

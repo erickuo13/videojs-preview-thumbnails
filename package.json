@@ -1,0 +1,35 @@
+{
+  "name": "videojs-preview-thumbnails",
+  "version": "1.0.0",
+  "description": "It's a video.js 7+ plugin for preview thumbnails above progress bar.",
+  "main": "dist/videojs-preview-thumbnails.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erickuo13/videojs-preview-thumbnails.git"
+  },
+  "keywords": [
+    "video.js",
+    "videojs",
+    "vj",
+    "video.js7",
+    "videojs7",
+    "vj7",
+    "plugin",
+    "thumbnail",
+    "thumbnails",
+    "preview",
+    "progressbar"
+  ],
+  "author": "erickuo <erickuo13@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erickuo13/videojs-preview-thumbnails/issues"
+  },
+  "homepage": "https://github.com/erickuo13/videojs-preview-thumbnails#readme"
+}
