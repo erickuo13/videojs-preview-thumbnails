@@ -3,6 +3,8 @@
 
 This is plugin for video.js 7.0 version. The plugin can show preview thumbnails above control progress-bar. very simple for setup , you can open example folder and read index.html file to understand why I said very simple. 
 
+![image](https://raw.githubusercontent.com/erickuo13/videojs-preview-thumbnails/master/readme.png)
+
 ### Installation
 
 ```sh
