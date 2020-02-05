@@ -37,7 +37,7 @@ videojs( 'my-player',{
  	},function () {
  		
     	this.initialPreviewThumbnail({
-        	sprite_url:'./output-180x120-thumb.jpg',
+        				sprite_url:'./output-180x120-thumb.jpg',
             second:6,
             sprite_x_count:15,
             thumbnail_width:180,
@@ -50,7 +50,7 @@ videojs( 'my-player',{
 
 ```
 
-Below is setup property information:
+Below is preview thumbnails setup property information:
 ```sh
 	Initial Preview Thumbnail
      * [require] sprite_url : sprite url
@@ -64,6 +64,45 @@ Below is setup property information:
      * preview_window_top : window top position.
      * preview_window_border_size : window's border size.
      * preview_window_border_color : window's border color.
+     * hook_out : mouse-out hook function.
+     * hook_move : mouse-move hook function.
+```
+
+When you incloud this library , you can also use hotkeys plugins , ( specially you can use this to get current player component in keyup and keydown function )
+
+```sh
+videojs( 'my-player',{
+ 		
+ 		~ omit videojs setup-data ~
+ 		
+ 	},function () {
+ 		
+ 		 this.hotkeys({
+         	keyup : function(event){
+            	if( event.code=="Space" ) {
+                	if( this.paused() ) this.play();
+                	else this.pause();
+                }
+            },
+            keydown : function (event) {
+            	if( event.code=="ArrowRight" )this.currentTime(Math.floor(this.currentTime())+10);
+                if( event.code=="ArrowLeft" )this.currentTime(Math.floor(this.currentTime())-10);
+                if( event.code=="ArrowUp" )this.volume(this.volume()+0.1);
+                if( event.code=="ArrowDown" )this.volume(this.volume()-0.1);
+            }
+         });
+ 		
+    });
+    
+});
+
+```
+
+Below is hotkeys setup property information:
+```sh
+	Initial Preview Thumbnail
+     * keyup : key-up function
+     * keydown : key-down function
 ```
 
 ### Todos
