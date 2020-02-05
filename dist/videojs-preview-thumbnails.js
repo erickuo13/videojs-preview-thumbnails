@@ -13,6 +13,7 @@
     }
 
     videojs.registerPlugin('initialPreviewThumbnail',initialPreviewThumbnail);
+    videojs.registerPlugin('hotkeys',hotkeys);
 
     /**
      * Initial Preview Thumbnail
@@ -93,6 +94,18 @@
 	    controlBar.find('.vjs-preview-thumbnail').css({'display':'none'});
 	    if( options.hasOwnProperty('hook_out') && typeof options.hook_out == 'function' ) options.hook_out();
 	});
+    }
+
+    /**
+     * HotKey plugins
+     * @param options
+     * 	keyup : keyup function
+     * 	keydown : keydown function
+     */
+    function hotkeys( options ) {
+        if( $('.vjs-tech').length == 0 ) return console.warn('Uncaught Player Element: initial failed');
+	if( typeof options.keyup=='function' && options.keyup ) $('.vjs-tech').on('keyup',options.keyup );
+	if( typeof options.keyup=='function' && options.keydown ) $('.vjs-tech').on('keydown',options.keydown );
     }
 
 })();
