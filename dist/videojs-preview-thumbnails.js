@@ -104,8 +104,12 @@
      */
     function hotkeys( options ) {
         if( $('.vjs-tech').length == 0 ) return console.warn('Uncaught Player Element: initial failed');
-	if( typeof options.keyup=='function' && options.keyup ) $('.vjs-tech').on('keyup',options.keyup );
-	if( typeof options.keyup=='function' && options.keydown ) $('.vjs-tech').on('keydown',options.keydown );
+	if( typeof options.keyup=='function' && options.keyup ) {
+	    $('.vjs-tech').on('keyup',options.keyup.bind(this) );
+	}
+	if( typeof options.keyup=='function' && options.keydown ) {
+	    $('.vjs-tech').on('keydown',options.keydown.bind(this) );
+	}
     }
 
 })();

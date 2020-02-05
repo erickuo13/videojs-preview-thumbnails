@@ -3,9 +3,9 @@
     <meta charset="UTF-8">
     <title>VideoJS 7 Preview Thumbnails Example</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="//vjs.zencdn.net/7.3.0/video.min.js"></script>
+    <script src="//vjs.zencdn.net/7.7.4/video.min.js"></script>
     <script src="../dist/videojs-preview-thumbnails.js"></script>
-    <link href="//vjs.zencdn.net/7.3.0/video-js.min.css" rel="stylesheet">
+    <link href="//vjs.zencdn.net/7.7.4/video-js.min.css" rel="stylesheet">
 
     <script>
 
@@ -40,6 +40,21 @@
                     thumbnail_height:120,
                     preview_window_border_size:2,
                     preview_window_border_color:'green'
+                });
+
+                this.hotkeys({
+                    keyup : function(event){
+                        if( event.code=="Space" ) {
+                            if( this.paused() ) this.play();
+                            else this.pause();
+                        }
+                    },
+                    keydown : function (event) {
+                        if( event.code=="ArrowRight" )this.currentTime(Math.floor(this.currentTime())+10);
+                        if( event.code=="ArrowLeft" )this.currentTime(Math.floor(this.currentTime())-10);
+                        if( event.code=="ArrowUp" )this.volume(this.volume()+0.1);
+                        if( event.code=="ArrowDown" )this.volume(this.volume()-0.1);
+                    }
                 });
                 console.log( 'ready to play' );
             });
